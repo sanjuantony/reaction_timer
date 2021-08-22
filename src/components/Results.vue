@@ -13,9 +13,9 @@ export default {
     },
     mounted() {
       console.log("Results Component: Mounted")
-      if(this.reactionTime < 200) {
+      if(this.reactionTime < 350) {
         this.rank = "Ninja Fingers"
-      } else if (this.reactionTime < 400) {
+      } else if (this.reactionTime < 500) {
         this.rank = "Rapid Reflexes"
       } else {
         this.rank = "Snail Pace"

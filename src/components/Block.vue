@@ -1,5 +1,5 @@
 <template>
-  <div class="block" v-if="showBlock" @click="stopTimer">
+  <div class="block" :style="{top: topPosition, left: leftPosition}" v-if="showBlock" @click="stopTimer">
       Click me
   </div>
 </template>
@@ -11,7 +11,11 @@ export default {
         return {
             showBlock: false,
             timer: null,
-            reactionTime: 0
+            reactionTime: 0,
+            topPosition: 0,
+            leftPosition: 0
+            // '--top': this.topPosition + '%',
+            // '--left': this.leftPosition + '%'
         }
    },
    mounted() {
@@ -20,6 +24,10 @@ export default {
            this.showBlock = true
            this.startTimer()
        },this.delay)
+       this.topPosition = Math.random() * 80 + '%'
+       this.leftPosition = Math.random() * 80 + '%'
+
+       console.log("Top Position: "+this.topPosition + ", Left Position: "+this.leftPosition)
    },
    updated() {
        console.log("Component Updated")
@@ -45,7 +53,11 @@ export default {
 
 <style>
     .block {
-        width: 400px;
+        position: fixed;
+        /* top: this.topPosition;
+        left: var(--left); */
+        width: 150px;
+        height: 10px;
         border-radius: 20px;
         background: #0faf87;
         color: white;

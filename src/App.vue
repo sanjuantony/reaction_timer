@@ -4,11 +4,13 @@
   <Block v-if="isPlaying" :delay="delay" @endGame="endGame"/>
   <!-- <p v-if="showResults">Reaction Time: {{ reactionTime }} ms</p> -->
   <Results v-if="showResults" :reactionTime="reactionTime"/>
+  <!-- <AverageTime :reactionTime="reactionTime"/> -->
 </template>
 
 <script>
 import Block from "./components/Block.vue"
 import Results from "./components/Results.vue"
+// import AverageTime from "./components/AverageTime.vue"
 
 export default {
   name: 'App',
@@ -35,6 +37,7 @@ export default {
   },
   components: {
     Block, Results
+    // , AverageTime
   }
 }
 </script>
